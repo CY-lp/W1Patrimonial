@@ -13,16 +13,16 @@ const Landing = () => {
         </div>
 
         <nav className="hidden md:flex space-x-8">
-          <a href="#" className="text-gray-700 hover:text-w1-teal">Produtos</a>
-          <a href="#" className="text-gray-700 hover:text-w1-teal">Parceiros</a>
-          <a href="#" className="text-gray-700 hover:text-w1-teal">Recursos</a>
+          <a href="#" className="text-gray-700 hover:text-cyan-400">Produtos</a>
+          <a href="#" className="text-gray-700 hover:text-cyan-400">Parceiros</a>
+          <a href="#" className="text-gray-700 hover:text-cyan-400">Recursos</a>
         </nav>
         <div className="flex items-center space-x-4">
-          <Link to="/login" className="text-gray-700 hover:text-w1-teal">
+          <Link to="/login" className="text-gray-700 hover:text-cyan-400">
             Entrar
           </Link>
           <Link to="/cadastro">
-            <Button className="bg-w1-teal hover:bg-teal-400 text-white">
+            <Button className="bg-[#00E5DC] hover:bg-[#00E5DC]/80 text-white">
               Criar Conta
             </Button>
           </Link>
@@ -48,16 +48,16 @@ const Landing = () => {
                 className="w-full h-12"
               />
             </div>
-            <Button className="bg-w1-teal hover:bg-teal-400 text-white px-8 h-12">
+            <Button className="bg-[#00E5DC] hover:bg-[#00E5DC]/80 text-white px-8 h-12">
               Começar
             </Button>
           </div>
           
           <div className="flex items-center">
-            <div className="w-8 h-8 rounded-full border-2 border-w1-teal flex items-center justify-center mr-2">
-              <div className="text-w1-teal">▶</div>
+            <div className="w-8 h-8 rounded-full border-2 border-cyan-400 flex items-center justify-center mr-2">
+              <div className="text-cyan-400">▶</div>
             </div>
-            <span className="text-w1-teal">Veja a W1 em ação</span>
+            <span className="text-cyan-400">Veja a W1 em ação</span>
           </div>
         </div>
         
@@ -79,8 +79,8 @@ const Landing = () => {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-w1-teal/10 rounded-lg flex items-center justify-center mb-4">
-                <BarChart3 className="w-6 h-6 text-w1-teal" />
+              <div className="w-12 h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center mb-4">
+                <BarChart3 className="w-6 h-6 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-w1-navy mb-3">
                 Gestão Integrada
@@ -91,8 +91,8 @@ const Landing = () => {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-w1-teal/10 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-w1-teal" />
+              <div className="w-12 h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-w1-navy mb-3">
                 Segurança Avançada
@@ -103,8 +103,8 @@ const Landing = () => {
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-w1-teal/10 rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-w1-teal" />
+              <div className="w-12 h-12 bg-cyan-400/10 rounded-lg flex items-center justify-center mb-4">
+                <Clock className="w-6 h-6 text-cyan-400" />
               </div>
               <h3 className="text-xl font-semibold text-w1-navy mb-3">
                 Economia de Tempo
