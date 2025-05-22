@@ -29,6 +29,6 @@ exports.index = async (req, res) => {
     { id: 1, nome: 'Aluno Exemplo', email: 'aluno@exemplo.com' },
     { id: 2, nome: 'Maria Teste', email: 'maria@teste.com' }
   ];
-  res.render('alunos/index', { alunos });
+  res.render('alunos/index', {alunos });
 };
 // ...existing code...
