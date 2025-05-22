@@ -1,4 +1,3 @@
-
 import React from "react";
 import Header from "@/components/layout/Header";
 import DashboardCard from "@/components/ui/DashboardCard";
@@ -37,7 +36,7 @@ const Income = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {incomeData.map((income) => (
               <DashboardCard key={income.id}>
-                <div className="bg-w1-teal text-white p-4 -mx-6 -mt-6 mb-4">
+                <div className="bg-[#00E5DC] text-white p-4 -mx-6 -mt-6 mb-4">
                   <p>
                     {income.date} - Origem: {income.origin}
                   </p>
@@ -56,7 +55,7 @@ const Income = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {incomeData.concat(incomeData).map((income, idx) => (
               <DashboardCard key={`future-${idx}`}>
-                <div className="bg-w1-teal text-white p-4 -mx-6 -mt-6 mb-4">
+                <div className="bg-[#00E5DC] text-white p-4 -mx-6 -mt-6 mb-4">
                   <p>
                     {income.date} - Origem: {income.origin}
                   </p>
