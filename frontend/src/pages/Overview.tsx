@@ -1,3 +1,4 @@
+
 import React from "react";
 import Header from "@/components/layout/Header";
 import AssetDistribution from "@/components/charts/AssetDistribution";
@@ -127,7 +128,7 @@ const Overview = () => {
                   <line x1="12" y1="17" x2="12.01" y2="17"></line>
                 </svg>
               </div>
-              <button className="bg-[#00E5DC] hover:bg-[#00E5DC]/80 text-white px-6 py-2 rounded">
+              <button className="bg-w1-teal hover:bg-teal-400 text-white px-6 py-2 rounded">
                 Ver notificações
               </button>
             </div>
