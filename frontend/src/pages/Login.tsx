@@ -31,15 +31,15 @@ const Login = () => {
                 className="w-full"
               />
             </div>
-            
+            <Link to="/overview">
             <Button 
               type="submit" 
               className="w-full bg-w1-teal hover:bg-teal-400 text-white h-12"
             >
               Entrar
             </Button>
+            </Link> 
           </form>
-          
           <div className="my-6 relative">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300"></div>

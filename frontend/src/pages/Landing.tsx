@@ -45,9 +45,11 @@ const Landing = () => {
                 className="w-full h-12"
               />
             </div>
-            <Button className="bg-w1-teal hover:bg-teal-400 text-white px-8 h-12">
-              Começar
-            </Button>
+            <Link to="/login">
+              <Button className="bg-[#00E5DC] hover:bg-[#00E5DC]/80 text-white px-8 h-12">
+                Começar
+              </Button>
+            </Link>
           </div>
           
           <div className="flex items-center">
