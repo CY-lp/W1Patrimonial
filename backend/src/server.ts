@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import autenticacaoRoutes from './routes/autenticacao';
+import apiRouter from './routes/api';
 
 // Carregar variáveis de ambiente
 dotenv.config();
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // Rotas
-app.use('/autenticacao', autenticacaoRoutes);
+app.use('/api', apiRouter);
 
 // Rota de teste
 app.get('/', (req, res) => {
@@ -24,4 +24,4 @@ const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
-}); 
+});

@@ -25,7 +25,11 @@ export const enviar = async (req: Request, res: Response) => {
     const documento = await documentoService.enviar(familyId, arquivo);
     res.status(201).json(documento);
   } catch (error) {
-    res.status(500).json({ error: 'Erro ao enviar documento' });
+    if (error instanceof Error) {
+        res.status(500).json({ error: `Erro ao enviar documento: ${error.message}` });
+    } else {
+        res.status(500).json({ error: 'Erro desconhecido ao enviar documento' });
+    }
   }
 };
 
@@ -33,7 +37,7 @@ export const obter = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const documento = await documentoService.buscarPorId(id);
-    
+
     if (!documento) {
       return res.status(404).json({ error: 'Documento não encontrado' });
     }
@@ -48,7 +52,7 @@ export const remover = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const documento = await documentoService.buscarPorId(id);
-    
+
     if (!documento) {
       return res.status(404).json({ error: 'Documento não encontrado' });
     }
@@ -58,4 +62,4 @@ export const remover = async (req: Request, res: Response) => {
   } catch (error) {
     res.status(500).json({ error: 'Erro ao deletar documento' });
   }
-}; 
+};

@@ -1,23 +1,23 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
 import Sidebar from "@/components/layout/Sidebar";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Cadastro from "./pages/Cadastro";
-import Index from "./pages/Index";
-import Dashboard from "./pages/Dashboard";
 import Overview from "./pages/Overview";
 import Family from "./pages/Family";
 import Documents from "./pages/Documents";
 import Income from "./pages/Income";
 import Consultant from "./pages/Consultant";
 import NotFound from "./pages/NotFound";
+import Help from "./pages/Help";
+import Perfil from "./pages/Perfil";
+import Dashboard from "./pages/Dashboard";
 
 const queryClient = new QueryClient();
 
@@ -44,14 +44,15 @@ const App = () => {
                     </div>
                     <div className="flex-1 overflow-auto">
                       <Routes>
-                        <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/" element={<Navigate to="/overview" replace />} />
                         <Route path="/overview" element={<Overview />} />
                         <Route path="/family" element={<Family />} />
                         <Route path="/documents" element={<Documents />} />
                         <Route path="/income" element={<Income />} />
                         <Route path="/consultant" element={<Consultant />} />
-                        <Route path="/perfil" element={<Dashboard />} />
-                        <Route path="/ajuda" element={<Dashboard />} />
+                        <Route path="/perfil" element={<Perfil />} />
+                        <Route path="/ajuda" element={<Help />} />
+                        <Route path="/dashboard" element={<Dashboard />} />
                         <Route path="*" element={<NotFound />} />
                       </Routes>
                     </div>

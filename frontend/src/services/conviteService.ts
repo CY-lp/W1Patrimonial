@@ -12,7 +12,7 @@ export const conviteService = {
   },
 
   obter: async (id: string) => {
-    const response = await api.get(`/convites/${id}`);
+    const response = await api.get(`/convites/${id}`); 
     return response.data;
   },
 
@@ -27,6 +27,6 @@ export const conviteService = {
   },
 
   remover: async (familyId: string, id: string) => {
-    await api.delete(`/familias/${familyId}/convites/${id}`);
+    await api.delete(`/familias/<span class="math-inline">\{familyId\}/convites/</span>{id}`);
   }
-}; 
+};
