@@ -56,110 +56,115 @@ enum InviteStatus {
 }
 
 model User {
-  id        String   @id @default(uuid())
-  nome      String
-  email     String   @unique
-  senha     String?
-  googleId  String?  @unique
-  tipo      String   // CLIENTE, CONSULTOR, ADMIN
-  ativo     Boolean  @default(true)
-  criadoEm  DateTime @default(now())
-  
+  id       String   @id @default(uuid())
+  nome     String
+  email    String   @unique
+  senha    String?
+  googleId String?  @unique
+  tipo     String // CLIENTE, CONSULTOR, ADMIN
+  ativo    Boolean  @default(true)
+  criadoEm DateTime @default(now())
+
   // Relacionamentos
-  familias        Family[]       @relation("FamilyOwner")
-  familiaConsultor Family[]      @relation("FamilyConsultant")
-  membrosFamilia  FamilyMember[]
+  familias         Family[]       @relation("FamilyOwner")
+  familiaConsultor Family[]       @relation("FamilyConsultant")
+  membrosFamilia   FamilyMember[]
+
+  convitesCriados Invite[] @relation("InviteCreator")
 
   @@map("usuarios")
 }
 
 model Family {
-  id            String    @id @default(uuid())
-  nome          String
-  user_id       String
-  consultor_id  String?
-  data_criacao  DateTime  @default(now())
+  id           String   @id @default(uuid())
+  nome         String
+  user_id      String
+  consultor_id String?
+  data_criacao DateTime @default(now())
 
   // Relações
-  dono          User            @relation("FamilyOwner", fields: [user_id], references: [id])
-  consultor     User?           @relation("FamilyConsultant", fields: [consultor_id], references: [id])
-  membros       FamilyMember[]
-  ativos        Asset[]
-  passivos      Liability[]
-  transacoes    Transaction[]
-  documentos    Document[]
-  convites      Invite[]
+  dono       User           @relation("FamilyOwner", fields: [user_id], references: [id])
+  consultor  User?          @relation("FamilyConsultant", fields: [consultor_id], references: [id])
+  membros    FamilyMember[]
+  ativos     Asset[]
+  passivos   Liability[]
+  transacoes Transaction[]
+  documentos Document[]
+  convites   Invite[]
 }
 
 model FamilyMember {
-  id              String    @id @default(uuid())
+  id              String   @id @default(uuid())
   nome            String
   parentesco      String
   data_nascimento DateTime
   family_id       String
 
   // Relações
-  familia         Family    @relation(fields: [family_id], references: [id])
+  familia Family @relation(fields: [family_id], references: [id])
+
+  user_id String // Ou o tipo do ID do seu User
+  usuario User   @relation(fields: [user_id], references: [id])
 }
 
 model Asset {
-  id              String    @id @default(uuid())
-  nome            String
-  tipo            AssetType
-  valor           Decimal
-  family_id       String
-  data_aquisicao  DateTime?
+  id             String    @id @default(uuid())
+  nome           String
+  tipo           AssetType
+  valor          Decimal
+  family_id      String
+  data_aquisicao DateTime?
 
   // Relações
-  familia         Family    @relation(fields: [family_id], references: [id])
+  familia Family @relation(fields: [family_id], references: [id])
 }
 
 model Liability {
-  id            String        @id @default(uuid())
-  nome          String
-  tipo          LiabilityType
-  valor         Decimal
-  family_id     String
-  data_inicio   DateTime?
+  id          String        @id @default(uuid())
+  nome        String
+  tipo        LiabilityType
+  valor       Decimal
+  family_id   String
+  data_inicio DateTime?
 
   // Relações
-  familia       Family        @relation(fields: [family_id], references: [id])
+  familia Family @relation(fields: [family_id], references: [id])
 }
 
 model Transaction {
-  id            String          @id @default(uuid())
-  tipo          TransactionType
-  descricao     String
-  valor         Decimal
-  data          DateTime
-  categoria     String
-  family_id     String
+  id        String          @id @default(uuid())
+  tipo      TransactionType
+  descricao String
+  valor     Decimal
+  data      DateTime
+  categoria String
+  family_id String
 
   // Relações
-  familia       Family          @relation(fields: [family_id], references: [id])
+  familia Family @relation(fields: [family_id], references: [id])
 }
 
 model Document {
-  id            String        @id @default(uuid())
-  titulo        String
-  url_arquivo   String
-  tipo          DocumentType
-  family_id     String
+  id          String       @id @default(uuid())
+  titulo      String
+  url_arquivo String
+  tipo        DocumentType
+  family_id   String
 
   // Relações
-  familia       Family        @relation(fields: [family_id], references: [id])
+  familia Family @relation(fields: [family_id], references: [id])
 }
 
 model Invite {
-  id              String        @id @default(uuid())
+  id              String       @id @default(uuid())
   email_convidado String
   tipo            InviteType
   status          InviteStatus
   family_id       String
   criado_por      String
-  data_envio      DateTime      @default(now())
+  data_envio      DateTime     @default(now())
 
   // Relações
-  familia         Family        @relation(fields: [family_id], references: [id])
-  criador         User          @relation("InviteCreator", fields: [criado_por], references: [id])
-} 
+  familia Family @relation(fields: [family_id], references: [id])
+  criador User   @relation("InviteCreator", fields: [criado_por], references: [id])
+}

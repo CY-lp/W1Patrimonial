@@ -29,7 +29,9 @@ export function useAuth() {
     }
   }, [navigate]);
 
-  const login = async (email: string, senha: string) => {
+
+
+  /* const login = async (email: string, senha: string) => {
     try {
       const { user } = await autenticacaoService.login({ email, senha });
       setUser(user);
@@ -40,7 +42,18 @@ export function useAuth() {
         error: error.response?.data?.error || 'Erro ao fazer login'
       };
     }
-  };
+  };*/
+
+    const login = async (email: string, senha: string) => {
+  // Ignora autenticação e seta usuário fake
+  setUser({
+    id: 'fake-id',
+    nome: 'Usuário Teste',
+    email,
+    tipo: 'CLIENTE'
+  });
+  return { success: true };
+};
 
   const loginGoogle = async (email: string, nome: string, googleId: string) => {
     try {
