@@ -26,6 +26,8 @@ git clone https://github.com/seuusuario/consultoria-patrimonial.git
 cd consultoria-patrimonial
 ```
 
+### Backend
+
 Instale as dependências do backend:
 
 ```bash
@@ -33,7 +35,7 @@ cd backend
 npm install
 ```
 
-Crie um banco de dados PostgreSQL e configure o arquivo `.env` com suas variáveis de ambiente.
+Crie um banco de dados PostgreSQL e configure o arquivo `.env` com suas variáveis de ambiente (incluindo as chaves do Google OAuth para autenticação).
 
 Rode as migrações:
 
@@ -47,13 +49,28 @@ Inicie o servidor backend:
 npm run dev
 ```
 
-Agora configure e rode o frontend:
+### Frontend
+
+Abra um novo terminal, acesse a pasta do frontend e instale as dependências:
 
 ```bash
 cd ../frontend
 npm install
+```
+
+Crie um arquivo `.env` na pasta `frontend` com as variáveis necessárias para o Google Auth (exemplo: `VITE_GOOGLE_CLIENT_ID`).
+
+Inicie o frontend:
+
+```bash
 npm run dev
 ```
+
+---
+
+## Autenticação
+
+O sistema utiliza autenticação via Google além do login tradicional. Para usar o login com Google, configure as credenciais OAuth tanto no backend quanto no frontend, conforme a documentação do Google Cloud.
 
 ---
 
@@ -62,6 +79,7 @@ npm run dev
 - **Node.js** – Backend da aplicação  
 - **PostgreSQL** – Banco de dados relacional  
 - **React** – Interface do usuário  
+- **Google OAuth** – Autenticação de usuários
 
 ---
 
